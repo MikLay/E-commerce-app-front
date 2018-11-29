@@ -1,0 +1,33 @@
+<div class="row card-deck">
+    <div class="col-lg-4 col-md-6 mb-4" *ngFor="let order of (productOrders | searchName:searchStr)  ">
+        <div class="card text-center">
+            <div class="card-header nav-link">
+                <h4 (click)="setHide(); showProductDetails(order)" >{{order.product.name}}</h4>
+            </div>
+            <div class="card-body">
+                <a href="#"><img class="card-img-top img-fluid" src={{order.product.image_url}} alt=""></a>
+              <div *ngIf="order.product.special_price != null">
+                <h5 class="card-text"><span class="badge badge-pill badge-success">${{order.product.special_price}}</span></h5>
+                <h5 class="card-text"><span class="badge badge-pill badge-secondary"><s>${{order.product.price}}</s></span></h5>
+              </div>
+                <h5 class="card-text"><span class="badge badge-pill badge-success" *ngIf="order.product.special_price == null">${{order.product.price}}</span></h5>
+                <div [clamp]="2" class="card-text product-desription">{{order.product.description}}</div>
+                <div class="row">
+                    <div class="col-4 padding-0" *ngIf="!isProductSelected(order.product)">
+                        <input type="number" min="0" class="form-control" [(ngModel)]=order.quantity>
+                    </div>
+                    <div class="col-4 padding-0" *ngIf="!isProductSelected(order.product)">
+                        <button class="btn btn-primary" (click)="addToCart(order)"
+                                [disabled]="order.quantity <= 0">Add To Cart
+                        </button>
+                    </div>
+                    <div class="col-12" *ngIf="isProductSelected(order.product)">
+                        <button class="btn btn-primary btn-block"
+                                (click)="removeFromCart(order)">Remove From Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

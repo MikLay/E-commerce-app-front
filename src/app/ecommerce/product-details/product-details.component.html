@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card-header">
+  <button type="button" class="close card-text text-right" aria-label="Close" (click)="setHide()">&times;<span aria-hidden="true"></span></button>
+<h2 class="card-title text-center">{{order.product.name}}</h2>
+  </div>
+<div class="card-body">
+  <div class="row">
+<a href="#" class="col-md-7"><img class="img-fluid card-img-top" src={{order.product.image_url}} alt=""></a>
+<div class="col-md-5">
+    <p class="card-text product-price"><span class="badge badge-success badge-danger">Price: {{order.product.price}}</span></p>
+    <p class="card-text product-price"><span class="badge badge-pill badge-success" *ngIf="order.product.special_price != null"> Special price: ${{order.product.special_price}}</span></p>
+</div>
+  </div>
+  </div>
+  <div class="product-description">
+  <h3 class="card-subtitle text-muted">Description:</h3>
+    <p class="card-text text-left">{{order.product.description}}</p>
+  </div>
+  </div>

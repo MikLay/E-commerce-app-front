@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Online Shop</a>
+    <label>
+      <input class="form-control" placeholder="Search" [(ngModel)]="searchStr">
+    </label>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarResponsive" aria-controls="navbarResponsive"
+            aria-expanded="false" aria-label="Toggle navigation" (click)="toggleCollapsed()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbarResponsive" [ngClass]="{'collapse': collapsed, 'navbar-collapse': true}">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#" (click)="reset(); closeDetails()">Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Categories
+          </a>
+          <div class="dropdown-menu black-dropdown" aria-labelledby="navbarDropdown">
+            <a class="nav-link category-link" href="#" (click)=" loadProducts(); closeDetails()">All
+              <span class="sr-only">(current)</span>
+            </a>
+            <a class="nav-link category-link" href="#" *ngFor="let category of categories" (click)=" loadCategoryProducts(category.id); closeDetails()">{{category.name}}
+              <span class="sr-only">(current)</span>
+            </a>
+
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="row centerBlock" [hidden]="productIsDetailing">
+  <div class="col-md-9">
+    <app-products [searchStr]="searchStr" #productsC [hidden]="orderFinished" (onHide)="onHide($event)"></app-products>
+  </div>
+  <div class="col-md-3">
+    <app-shopping-cart (onOrderFinished)=finishOrder($event) #shoppingCartC
+                       [hidden]="orderFinished"></app-shopping-cart>
+  </div>
+  <div class="col-md-6 offset-3">
+    <app-orders #ordersC [hidden]="!orderFinished"></app-orders>
+  </div>
+</div>
+<app-product-details class="col-md-12" [hidden]="!productIsDetailing" (onHide)="onHide($event)" ></app-product-details>
+
