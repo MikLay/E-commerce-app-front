@@ -13,7 +13,7 @@ import {EcommerceService} from './services/EcommerceService';
 export class EcommerceComponent implements OnInit {
   searchStr = '';
   categories: Category[] = [];
-  private collapsed = true;
+  collapsed = true;
   orderFinished = false;
   productIsDetailing = false;
 

@@ -5,7 +5,7 @@
                 <h4 (click)="setHide(); showProductDetails(order)" >{{order.product.name}}</h4>
             </div>
             <div class="card-body">
-                <a href="#"><img class="card-img-top img-fluid" src={{order.product.image_url}} alt=""></a>
+                <a href="#"><img class="card-img-top img-fluid product-img" src={{order.product.image_url}} alt=""></a>
               <div *ngIf="order.product.special_price != null">
                 <h5 class="card-text"><span class="badge badge-pill badge-success">${{order.product.special_price}}</span></h5>
                 <h5 class="card-text"><span class="badge badge-pill badge-secondary"><s>${{order.product.price}}</s></span></h5>

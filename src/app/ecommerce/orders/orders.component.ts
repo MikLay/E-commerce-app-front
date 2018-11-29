@@ -40,7 +40,6 @@ export class OrdersComponent implements OnInit {
     this.resultOrder.phone = this.phone;
     this.orders.productOrders.forEach((productOrder) => this.resultOrder['product[' +
     productOrder.product.id + ']'] = productOrder.quantity);
-    console.log(this.resultOrder);
     this.ecommerceService.saveOrder(this.resultOrder).subscribe();
   }
 
