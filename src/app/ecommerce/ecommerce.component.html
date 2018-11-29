@@ -37,7 +37,7 @@
 </nav>
 <div class="row centerBlock" [hidden]="productIsDetailing">
   <div class="col-md-9">
-    <app-products [searchStr]="searchStr" #productsC [hidden]="orderFinished" (onHide)="onHide($event)"></app-products>
+    <app-products [searchStr]="searchStr" #productsC [hidden]="orderFinished" (onHide)="onHide()"></app-products>
   </div>
   <div class="col-md-3">
     <app-shopping-cart (onOrderFinished)=finishOrder($event) #shoppingCartC
@@ -47,5 +47,5 @@
     <app-orders #ordersC [hidden]="!orderFinished"></app-orders>
   </div>
 </div>
-<app-product-details class="col-md-12" [hidden]="!productIsDetailing" (onHide)="onHide($event)" ></app-product-details>
+<app-product-details class="col-md-12" [hidden]="!productIsDetailing" (onHide)="onHide()" ></app-product-details>
 
