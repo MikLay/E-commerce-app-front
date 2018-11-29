@@ -3,6 +3,10 @@
   background-color: slategray;
 }
 
+.card-title {
+  font-size: 27px;
+}
+
 .card {
   margin: auto auto;
   float: none;
@@ -21,12 +25,14 @@
 }
 
 .product-price{
-  font-size: 40px;
+  font-size: 30px;
 }
 
 .product-description {
+  padding: 15px;
   margin: 2vw 4vw;
-  font-size: 35px;
+  font-size: 25px;
+  background-color: gainsboro;
 }
 
 .background-description {

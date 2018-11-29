@@ -5,9 +5,9 @@
   </div>
 <div class="card-body">
   <div class="row">
-<a href="#" class="col-md-7"><img class="img-fluid card-img-top" src={{order.product.image_url}} alt=""></a>
+<a href="#" class="col-md-7"><img class="img-fluid card-img-top details-img" src={{order.product.image_url}} alt=""></a>
 <div class="col-md-5">
-    <p class="card-text product-price"><span class="badge badge-success badge-danger">Price: {{order.product.price}}</span></p>
+    <p class="card-text product-price"><span class="badge badge-success badge-danger">Price: ${{order.product.price}}</span></p>
     <p class="card-text product-price"><span class="badge badge-pill badge-success" *ngIf="order.product.special_price != null"> Special price: ${{order.product.special_price}}</span></p>
 </div>
   </div>
