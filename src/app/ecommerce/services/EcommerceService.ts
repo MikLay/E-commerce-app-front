@@ -7,10 +7,10 @@ import {OrderModel} from '../models/order.model';
 
 @Injectable()
 export class EcommerceService {
-    private productsUrl = 'http://nit.tron.net.ua/api/product/list';
-    private categoriesListUrl = 'http://nit.tron.net.ua/api/category/list';
-    private ordersUrl = 'http://nit.tron.net.ua/api/order/add';
-    private productsByCategory = 'http://nit.tron.net.ua/api/product/list/category/';
+    private productsUrl = 'https://nit.tron.net.ua/api/product/list';
+    private categoriesListUrl = 'https://nit.tron.net.ua/api/category/list';
+    private ordersUrl = 'https://nit.tron.net.ua/api/order/add';
+    private productsByCategory = 'https://nit.tron.net.ua/api/product/list/category/';
 
     private productOrder: ProductOrder;
     private showOrder: ProductOrder;
