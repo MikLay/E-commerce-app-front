@@ -10,6 +10,9 @@ import {OrderModel} from '../models/order.model';
   styleUrls: ['./orders.component.css']
 })
 export class OrdersComponent implements OnInit {
+
+
+
   orders: ProductOrders;
   total: number;
   paid: boolean;
@@ -40,7 +43,7 @@ export class OrdersComponent implements OnInit {
     this.resultOrder.phone = this.phone;
     this.orders.productOrders.forEach((productOrder) => this.resultOrder['product[' +
     productOrder.product.id + ']'] = productOrder.quantity);
-    this.ecommerceService.saveOrder(this.resultOrder).subscribe();
+    this.ecommerceService.saveOrder(this.resultOrder).subscribe((error) => console.log(error));
   }
 
   loadTotal() {

@@ -1,12 +1,19 @@
 import {ProductOrder} from '../models/product-order.model';
 import {Subject} from 'rxjs/internal/Subject';
 import {ProductOrders} from '../models/product-orders.model';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {EventEmitter, Injectable, Output} from '@angular/core';
 import {OrderModel} from '../models/order.model';
+import {forEach} from '@angular/router/src/utils/collection';
 
 @Injectable()
 export class EcommerceService {
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/x-www-form-urlencoded'
+    })
+  };
     private productsUrl = 'https://nit.tron.net.ua/api/product/list';
     private categoriesListUrl = 'https://nit.tron.net.ua/api/category/list';
     private ordersUrl = 'https://nit.tron.net.ua/api/order/add';
@@ -51,7 +58,11 @@ export class EcommerceService {
         return this.http.get(this.productsByCategory + productsByCategoryEnding);
     }
     saveOrder(order: OrderModel) {
-        return this.http.post(this.ordersUrl, JSON.stringify(order));
+      let body = `token=${order.token}&name=${order.name}&email=${order.email}&phone=${order.phone}`;
+      this.orders.productOrders.forEach((productOrder) => body += '&products[' +
+      productOrder.product.id + ']=' + productOrder.quantity);
+      console.log(body);
+        return this.http.post(this.ordersUrl, body, this.httpOptions);
     }
 
     set SelectedProductOrder(value: ProductOrder) {
