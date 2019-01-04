@@ -1,6 +1,7 @@
-# Untitled3
+# E-commerce-app-front
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
+This project was created as a task for university course. Small adaptive website with navigation menu, good grid, order panel, card panel.
+It sends html requests (POST/GET) to teachers server.  
 
 ## Development server
 
@@ -25,3 +26,12 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Built With
+
+* [Angular](https://angular.io/) - the JS framework.
+* [Maven](https://maven.apache.org/) - Dependency Management.
+
+## Author
+
+ **Michael Fediuchenko** - *Initial work* - [MikLay](https://github.com/MikLay)
